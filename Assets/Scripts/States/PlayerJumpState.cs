@@ -10,7 +10,9 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void Enter()
     {
-        StartJump();
+        PlayerJump();
+        PlayJumpAnimation();
+        ResetJumpInput();
     }
 
     public override void LogicUpdate()
@@ -28,13 +30,6 @@ public class PlayerJumpState : PlayerBaseState
     }
 
     #region Start Jump
-    private void StartJump() 
-    {
-        PlayerJump();
-        PlayJumpAnimation();
-        ResetJumpInput();
-    }
-
     private void PlayJumpAnimation() 
     {
         playerController.playerAnimation.SetStateAnimation(PlayerAnimationStates.Jump);
