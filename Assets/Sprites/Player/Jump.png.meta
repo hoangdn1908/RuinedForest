@@ -106,67 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: herochar_jump_up_anim_strip_3_0
+      name: Jump_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 14
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c4fa500683589c8f0800000000000000
-      internalID: -519737804808933556
+      spriteID: 74dc453b0e7542943b76deb6b63a5826
+      internalID: 1669132407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_jump_up_anim_strip_3_1
+      name: Jump_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 0
-        width: 14
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b8658bd8cc7cff290800000000000000
-      internalID: -7854339543745931637
+      spriteID: faea1728a50ade34fb23a614c03a85be
+      internalID: 174514718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_jump_up_anim_strip_3_2
+      name: Jump_2
       rect:
         serializedVersion: 2
-        x: 34
+        x: 32
         y: 0
-        width: 13
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5444d8748a8976130800000000000000
-      internalID: 3559981878982034501
+      spriteID: 55bb7884db8995649b6da3dc9d5efb77
+      internalID: 518517080
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2c2d1f0198e907244812ffeee07e2525
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +183,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      herochar_jump_up_anim_strip_3_0: -519737804808933556
-      herochar_jump_up_anim_strip_3_1: -7854339543745931637
-      herochar_jump_up_anim_strip_3_2: 3559981878982034501
+      Jump_0: 1669132407
+      Jump_1: 174514718
+      Jump_2: 518517080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
