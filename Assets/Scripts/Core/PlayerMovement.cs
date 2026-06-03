@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     #region Run
     public void Run(float direction, float moveSpeed) 
     {
-        rb.linearVelocity = new Vector2(direction * moveSpeed, rb.linearVelocityY);
+        rb.linearVelocity = new Vector2(direction * moveSpeed, rb.linearVelocity.y);
         FlipPlayer(direction);
     }
 
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(direction < 0f) 
         {
-            spriteRenderer.flipY = true;
+            spriteRenderer.flipX = true;
         }
     }
     #endregion
