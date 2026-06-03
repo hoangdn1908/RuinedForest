@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,133 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: herochar_run_anim_strip_6_0
+      name: Run_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b75e84a1d05755950800000000000000
-      internalID: 6437179941532001659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herochar_run_anim_strip_6_1
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 1
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47b53c235f3056b20800000000000000
-      internalID: 3126909867932212084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herochar_run_anim_strip_6_2
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 0
-        width: 15
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6d8d16d5cd2344fc0800000000000000
-      internalID: -3511625887401256746
+      spriteID: c815c93e89752c14d8dd5f70babe0f9f
+      internalID: 1641990094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_run_anim_strip_6_3
+      name: Run_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdf0ca274d792b4a886e6a013f5c02b
+      internalID: 302504685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dde353e8b1753f45a3ae68eae6613f0
+      internalID: -215017570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 14
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: be414274a4e192610800000000000000
-      internalID: 1596840847249511659
+      spriteID: f0f6b8c9a469f724d880dad370901194
+      internalID: 1081216543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_run_anim_strip_6_4
+      name: Run_4
       rect:
         serializedVersion: 2
         x: 64
-        y: 1
-        width: 14
-        height: 15
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 63a1881eb5854c230800000000000000
-      internalID: 3658145948980746806
+      spriteID: cb6c6993d4abc8b4c83e4b8ea7a500a7
+      internalID: 984443447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_run_anim_strip_6_5
+      name: Run_5
       rect:
         serializedVersion: 2
         x: 80
         y: 0
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dfce7fb50234e6bd0800000000000000
-      internalID: -2635094925704172291
+      spriteID: 2df6ffdb644485d48b0673ee9fc4f625
+      internalID: 1945457293
       vertices: []
       indices: 
       edges: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: eeb7681158b18de48bd9821621d46a06
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +258,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      herochar_run_anim_strip_6_0: 6437179941532001659
-      herochar_run_anim_strip_6_1: 3126909867932212084
-      herochar_run_anim_strip_6_2: -3511625887401256746
-      herochar_run_anim_strip_6_3: 1596840847249511659
-      herochar_run_anim_strip_6_4: 3658145948980746806
-      herochar_run_anim_strip_6_5: -2635094925704172291
+      Run_0: 1641990094
+      Run_1: 302504685
+      Run_2: -215017570
+      Run_3: 1081216543
+      Run_4: 984443447
+      Run_5: 1945457293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
