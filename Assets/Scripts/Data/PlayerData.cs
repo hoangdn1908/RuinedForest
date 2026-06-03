@@ -5,4 +5,6 @@ public class PlayerData : ScriptableObject
 {
     [Header("Run")]
     public float runSpeed = 5f;
+    [Header("Jump")]
+    public float jumpForce = 12f;
 }

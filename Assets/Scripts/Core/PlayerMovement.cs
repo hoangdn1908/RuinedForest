@@ -30,4 +30,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     #endregion
+
+    #region Jump
+    public void Jump(float jumpForce) 
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    public float GetVeticalVelocity() 
+    {
+        return rb.linearVelocityY;
+    }
+    #endregion
 }

@@ -11,12 +11,15 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement playerMovement {  get; private set; }
     public PlayerInput playerInput { get; private set; }
     public PlayerAnimation playerAnimation {  get; private set; }
+    public PlayerGroundDetector playerGroundDetector { get; private set; }
     #endregion
 
     #region State Machine
     public PlayerStateMachine playerStateMachine { get; private set; }
     public PlayerIdleState playerIdleState {  get; private set; }
     public PlayerRunState playerRunState { get; private set; }
+    public PlayerJumpState playerJumpState { get; private set; }
+    public PlayerFallState playerFallState { get; private set; }
     #endregion
 
     private void Awake()
@@ -45,6 +48,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerAnimation = GetComponent<PlayerAnimation>();
         playerInput = GetComponent<PlayerInput>();
+        playerGroundDetector = GetComponent<PlayerGroundDetector>();
     }
 
     private void InitializeStateMachine() 
@@ -52,6 +56,8 @@ public class PlayerController : MonoBehaviour
         playerStateMachine = new PlayerStateMachine();
         playerIdleState = new PlayerIdleState(this, playerStateMachine);
         playerRunState = new PlayerRunState(this, playerStateMachine);
+        playerJumpState = new PlayerJumpState(this, playerStateMachine);
+        playerFallState = new PlayerFallState(this, playerStateMachine);
     }
 
     private void InitialieIdleState() 
