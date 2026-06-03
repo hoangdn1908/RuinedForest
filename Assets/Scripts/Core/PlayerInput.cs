@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour
     public void ReadInput() 
     {
         MoveInput = Input.GetAxisRaw("Horizontal");
-        JumpPessed = Input.GetKeyDown(KeyCode.Space); 
+        JumpPessed = Input.GetKeyDown(KeyCode.K); 
     }
 
     public bool HasMoveInput() 
