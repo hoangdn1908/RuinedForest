@@ -49,7 +49,7 @@ public class PlayerJumpState : PlayerBaseState
 
     private void ChangeToFallState() 
     {
-        if (playerController.playerMovement.GetVeticalVelocity() > 0f) 
+        if (playerController.playerMovement.GetVeticalVelocity() < 0f) 
         {
             playerStateMachine.ChangeState(playerController.playerFallState);
         }
