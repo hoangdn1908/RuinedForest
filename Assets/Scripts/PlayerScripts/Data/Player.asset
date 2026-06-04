@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   runSpeed: 5
+  jumpForce: 12
+  attackDuration: 0.15

@@ -27,7 +27,7 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void HandleInput()
     {
-        
+        CheckAttackInput();
     }
 
     #region Start Jump
@@ -66,6 +66,14 @@ public class PlayerJumpState : PlayerBaseState
     private void MoveInAir() 
     {
         playerController.playerMovement.Run(playerController.playerInput.MoveInput, playerController.PlayerData.runSpeed);
+    }
+
+    private void CheckAttackInput()
+    {
+        if (playerController.playerInput.AttackPressed)
+        {
+            playerStateMachine.ChangeState(playerController.playerAttackState);
+        }
     }
 
 }

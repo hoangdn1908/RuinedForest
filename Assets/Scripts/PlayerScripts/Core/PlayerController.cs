@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public PlayerRunState playerRunState { get; private set; }
     public PlayerJumpState playerJumpState { get; private set; }
     public PlayerFallState playerFallState { get; private set; }
+    public PlayerAttackState playerAttackState { get; private set; }
     #endregion
 
     private void Awake()
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
         playerRunState = new PlayerRunState(this, playerStateMachine);
         playerJumpState = new PlayerJumpState(this, playerStateMachine);
         playerFallState = new PlayerFallState(this, playerStateMachine);
+        playerAttackState = new PlayerAttackState(this, playerStateMachine);
     }
 
     private void InitialieIdleState() 

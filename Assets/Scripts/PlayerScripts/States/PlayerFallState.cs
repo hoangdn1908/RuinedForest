@@ -15,7 +15,7 @@ public class PlayerFallState : PlayerBaseState
 
     public override void LogicUpdate()
     {
-        ChangeToRightState();
+        ExitFall();
     }
 
     public override void PhysicUpdate()
@@ -23,6 +23,10 @@ public class PlayerFallState : PlayerBaseState
         MoveInAir();
     }
 
+    public override void HandleInput()
+    {
+        CheckAttackInput();
+    }
     private void PlayFallAnimation() 
     {
         playerController.playerAnimation.SetStateAnimation(PlayerAnimationStates.Fall);
@@ -33,7 +37,7 @@ public class PlayerFallState : PlayerBaseState
         playerController.playerMovement.Run(playerController.playerInput.MoveInput, playerController.PlayerData.runSpeed);
     }
 
-    private void ChangeToRightState() 
+    private void ExitFall() 
     {
         if (playerController.playerGroundDetector.IsGround()) 
         {
@@ -54,6 +58,14 @@ public class PlayerFallState : PlayerBaseState
         if (playerController.playerEffects != null)
         {
             playerController.playerEffects.SpawnLandDust();
+        }
+    }
+
+    private void CheckAttackInput()
+    {
+        if (playerController.playerInput.AttackPressed)
+        {
+            playerStateMachine.ChangeState(playerController.playerAttackState);
         }
     }
 }

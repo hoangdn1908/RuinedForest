@@ -7,4 +7,6 @@ public class PlayerData : ScriptableObject
     public float runSpeed = 5f;
     [Header("Jump")]
     public float jumpForce = 12f;
+    [Header("Attack")]
+    public float attackDuration = 0.25f;
 }

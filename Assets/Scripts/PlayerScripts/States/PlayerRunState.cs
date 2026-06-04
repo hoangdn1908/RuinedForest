@@ -23,6 +23,7 @@ public class PlayerRunState : PlayerBaseState
 
     public override void HandleInput()
     {
+        CheckAttackInput();
         CheckJumpInput();
         CheckIdleInput();
     }
@@ -51,6 +52,14 @@ public class PlayerRunState : PlayerBaseState
         if (playerController.playerInput.JumpPessed && playerController.playerGroundDetector.IsGround())
         {
             playerStateMachine.ChangeState(playerController.playerJumpState);
+        }
+    }
+
+    private void CheckAttackInput()
+    {
+        if (playerController.playerInput.AttackPressed)
+        {
+            playerStateMachine.ChangeState(playerController.playerAttackState);
         }
     }
     #endregion
