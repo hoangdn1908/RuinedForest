@@ -37,11 +37,7 @@ public class PlayerFallState : PlayerBaseState
     {
         if (playerController.playerGroundDetector.IsGround()) 
         {
-            if (playerController.playerEffects != null)
-            {
-                playerController.playerEffects.SpawnLandDust();
-            }
-
+            SpawnLandDust();
             if (playerController.playerInput.HasMoveInput())
             {
                 playerStateMachine.ChangeState(playerController.playerRunState);
@@ -50,6 +46,14 @@ public class PlayerFallState : PlayerBaseState
             {
                 playerStateMachine.ChangeState(playerController.playerIdleState);
             }
+        }
+    }
+
+    private void SpawnLandDust()
+    {
+        if (playerController.playerEffects != null)
+        {
+            playerController.playerEffects.SpawnLandDust();
         }
     }
 }
