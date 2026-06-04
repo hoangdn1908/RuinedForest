@@ -10,4 +10,10 @@ public class PlayerGroundDetector : MonoBehaviour
     {
         return Physics2D.OverlapCircle(groundCheckpoint.position, groundCheckRadius, groundLayer);
     }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(groundCheckpoint.position, groundCheckRadius);
+    }
 }

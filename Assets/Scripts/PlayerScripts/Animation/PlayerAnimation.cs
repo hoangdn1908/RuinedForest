@@ -9,5 +9,6 @@ public class PlayerAnimation : MonoBehaviour
     public void SetStateAnimation(PlayerAnimationStates states) 
     {
         animator.SetInteger(stateIdHash, (int) states);
+        animator.Play(states.ToString());
     }
 }

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public PlayerInput playerInput { get; private set; }
     public PlayerAnimation playerAnimation {  get; private set; }
     public PlayerGroundDetector playerGroundDetector { get; private set; }
+    public PlayerEffects playerEffects { get; private set; }
     #endregion
 
     #region State Machine
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
         playerAnimation = GetComponent<PlayerAnimation>();
         playerInput = GetComponent<PlayerInput>();
         playerGroundDetector = GetComponent<PlayerGroundDetector>();
+        playerEffects = GetComponent<PlayerEffects>();
     }
 
     private void InitializeStateMachine() 
