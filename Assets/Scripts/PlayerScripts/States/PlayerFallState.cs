@@ -37,6 +37,11 @@ public class PlayerFallState : PlayerBaseState
     {
         if (playerController.playerGroundDetector.IsGround()) 
         {
+            if (playerController.playerEffects != null)
+            {
+                playerController.playerEffects.SpawnLandDust();
+            }
+
             if (playerController.playerInput.HasMoveInput())
             {
                 playerStateMachine.ChangeState(playerController.playerRunState);

@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerEffects : MonoBehaviour
 {
     [Header("Spawn Point")]
-    [SerializeField] private Transform dustSpawnPoint;
+    [SerializeField] private Transform jumpDustSpawnPoint;
+    [SerializeField] private Transform fallDustSpawnPoint;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject jumpDustPrefab;

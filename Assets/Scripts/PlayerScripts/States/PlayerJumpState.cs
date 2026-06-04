@@ -10,6 +10,7 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void Enter()
     {
+        SpawnJumpDust();
         PlayerJump();
         PlayJumpAnimation();
         ResetJumpInput();
@@ -43,6 +44,14 @@ public class PlayerJumpState : PlayerBaseState
     private void ResetJumpInput() 
     {
         playerController.playerInput.ResetJumpInput();
+    }
+
+    private void SpawnJumpDust()
+    {
+        if (playerController.playerEffects != null)
+        {
+            playerController.playerEffects.SpawnJumpDust();
+        }
     }
     #endregion
 
