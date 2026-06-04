@@ -13,6 +13,10 @@ public class PlayerIdleState : PlayerBaseState
         PlayIdleAnimation();
     }
 
+    public override void LogicUpdate()
+    {
+        CheckFallState();
+    }
     public override void HandleInput() 
     {
         CheckJumpInput();
@@ -43,6 +47,16 @@ public class PlayerIdleState : PlayerBaseState
         if (playerController.playerInput.JumpPessed && playerController.playerGroundDetector.IsGround()) 
         {
             playerStateMachine.ChangeState(playerController.playerJumpState);
+        }
+    }
+    #endregion
+
+    #region Check State logic
+    private void CheckFallState()
+    {
+        if (!playerController.playerGroundDetector.IsGround())
+        {
+            playerStateMachine.ChangeState(playerController.playerFallState);
         }
     }
     #endregion

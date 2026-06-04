@@ -12,6 +12,10 @@ public class PlayerRunState : PlayerBaseState
         PlayRunAnimation();
     }
 
+    public override void LogicUpdate()
+    {
+        CheckFallState();
+    }
     public override void PhysicUpdate()
     {
         PlayerRun();
@@ -47,6 +51,16 @@ public class PlayerRunState : PlayerBaseState
         if (playerController.playerInput.JumpPessed && playerController.playerGroundDetector.IsGround())
         {
             playerStateMachine.ChangeState(playerController.playerJumpState);
+        }
+    }
+    #endregion
+
+    #region Check State logic
+    private void CheckFallState() 
+    {
+        if (!playerController.playerGroundDetector.IsGround()) 
+        {
+            playerStateMachine.ChangeState(playerController.playerFallState);
         }
     }
     #endregion
