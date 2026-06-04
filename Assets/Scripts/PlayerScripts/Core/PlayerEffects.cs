@@ -15,15 +15,15 @@ public class PlayerEffects : MonoBehaviour
 
     public void SpawnJumpDust()
     {
-        SpawnDust(jumpDustPrefab);
+        SpawnDust(jumpDustPrefab, jumpDustSpawnPoint);
     }
 
     public void SpawnLandDust()
     {
-        SpawnDust(landDustPrefab);
+        SpawnDust(landDustPrefab, fallDustSpawnPoint);
     }
 
-    private void SpawnDust(GameObject dustPrefab)
+    private void SpawnDust(GameObject dustPrefab, Transform dustSpawnPoint)
     {
         if (dustPrefab == null) return;
 
