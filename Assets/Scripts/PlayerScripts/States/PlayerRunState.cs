@@ -9,6 +9,7 @@ public class PlayerRunState : PlayerBaseState
 
     public override void Enter()
     {
+        PlayRunDust();
         PlayRunAnimation();
     }
 
@@ -28,6 +29,11 @@ public class PlayerRunState : PlayerBaseState
         CheckIdleInput();
     }
 
+    public override void Exit()
+    {
+        StopRunDust();
+    }
+
     private void PlayRunAnimation() 
     {
         playerController.playerAnimation.SetStateAnimation(PlayerAnimationStates.Run);
@@ -37,6 +43,24 @@ public class PlayerRunState : PlayerBaseState
     {
         playerController.playerMovement.Run(playerController.playerInput.MoveInput, playerController.PlayerData.runSpeed);
     }
+
+    #region Run effect
+    private void PlayRunDust() 
+    {
+        if (playerController.playerGroundDetector.IsGround() && Mathf.Abs(playerController.playerInput.MoveInput) > 0.1f) 
+        {
+            playerController.playerEffects.PlayRunDust();
+        }
+    }
+
+    private void StopRunDust() 
+    {
+        if (!playerController.playerGroundDetector.IsGround() || playerController.playerInput.MoveInput <= 0f)
+        {
+            playerController.playerEffects.StopRunDust();
+        }
+    }
+    #endregion
 
     #region Check state input
     private void CheckIdleInput() 

@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class PlayerEffects : MonoBehaviour
 {
-    [Header("Spawn Point")]
+    #region Jump and Fall effect
+    [Header("Jump and Fall")]
     [SerializeField] private Transform jumpDustSpawnPoint;
     [SerializeField] private Transform fallDustSpawnPoint;
-
     [Header("Prefabs")]
     [SerializeField] private GameObject jumpDustPrefab;
     [SerializeField] private GameObject landDustPrefab;
-
     [Header("Settings")]
     [SerializeField] private float destroyDelay = 2f;
+    #endregion
 
+    #region Run effect
+    [Header("Run")]
+    [SerializeField] private ParticleSystem runDust;
+    #endregion
     public void SpawnJumpDust()
     {
         SpawnDust(jumpDustPrefab, jumpDustSpawnPoint);
@@ -30,5 +34,21 @@ public class PlayerEffects : MonoBehaviour
         Vector3 spawnPosition = dustSpawnPoint != null ? dustSpawnPoint.position : transform.position;
         GameObject dust = Instantiate(dustPrefab, spawnPosition, Quaternion.identity);
         Destroy(dust, destroyDelay);
+    }
+
+    public void PlayRunDust() 
+    {
+        if (!runDust.isPlaying) 
+        {
+            runDust.Play();
+        }
+    }
+
+    public void StopRunDust()
+    {
+        if (runDust.isPlaying)
+        {
+            runDust.Stop();
+        }
     }
 }
