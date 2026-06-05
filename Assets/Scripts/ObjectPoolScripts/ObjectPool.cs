@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
@@ -7,6 +6,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private GameObject prefabs;
     [SerializeField] private int poolSize = 5;
     private Queue<GameObject> pool = new Queue<GameObject>();
+    private HashSet<GameObject> pooledObjects = new HashSet<GameObject>();
 
     private void Awake()
     {
@@ -26,6 +26,7 @@ public class ObjectPool : MonoBehaviour
         GameObject obj = Instantiate(prefabs, transform);
         obj.SetActive(false);
         pool.Enqueue(obj);
+        pooledObjects.Add(obj);
     }
 
     public GameObject GetFromPool() 
@@ -35,13 +36,19 @@ public class ObjectPool : MonoBehaviour
             CreateObject();
         }
         GameObject obj = pool.Dequeue();
-        obj.SetActive (true);
+        pooledObjects.Remove(obj);
+        obj.transform.SetParent(null, true);
+        obj.SetActive(true);
         return obj;
     }
 
     public void ReturnToPool(GameObject obj) 
     {
+        if (obj == null) return;
+        if (pooledObjects.Contains(obj)) return;
+        obj.transform.SetParent(transform, true);
         obj.SetActive(false);
         pool.Enqueue(obj);
+        pooledObjects.Add(obj);
     }
 }
