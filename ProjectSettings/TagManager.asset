@@ -45,14 +45,17 @@ TagManager:
   - name: BackGround
     uniqueID: 3363951591
     locked: 0
-  - name: Ground
-    uniqueID: 2679398575
-    locked: 0
   - name: Deco
     uniqueID: 2550253897
     locked: 0
+  - name: Ground
+    uniqueID: 2679398575
+    locked: 0
   - name: Player
     uniqueID: 144679299
+    locked: 0
+  - name: Grass
+    uniqueID: 2040128923
     locked: 0
   m_RenderingLayers:
   - Default
