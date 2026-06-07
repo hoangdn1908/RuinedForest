@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   idleDuration: 1
   moveSpeed: 2
+  patrolDistance: 3

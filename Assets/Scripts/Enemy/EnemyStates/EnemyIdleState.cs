@@ -1,16 +1,46 @@
 using UnityEngine;
 
-public class EnemyIdleState : MonoBehaviour
+public class EnemyIdleState : EnemyBaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private float idleTimer;
+    public EnemyIdleState(EnemyController enemyController, EnemyStateMachine enemyStateMachine) : base(enemyController, enemyStateMachine)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        StopMovement();
+        SetIdleTimer();
+        PlayIdleAnimation();
+    }
+
+    public override void LogicUpdate()
+    {
+        CheckPatrolState();
+    }
+
+    private void StopMovement() 
+    {
+        enemyController.enemyMovement.Stop();
+    }
+
+    private void PlayIdleAnimation() 
+    {
+        enemyController.enemyAnimation.SetStateAnimation(EnemyAnimationStates.Idle);
+    }
+
+    private void SetIdleTimer() 
+    {
+        idleTimer = enemyController.EnemyData.idleDuration;
+    }
+
+    private void CheckPatrolState() 
+    {
+        idleTimer -= Time.deltaTime;
+        if (idleTimer <= 0)
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyPatrolState);
+        }
     }
 }

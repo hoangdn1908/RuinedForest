@@ -322,6 +322,9 @@ GameObject:
   - component: {fileID: 348195108}
   - component: {fileID: 348195107}
   - component: {fileID: 348195106}
+  - component: {fileID: 348195113}
+  - component: {fileID: 348195112}
+  - component: {fileID: 348195111}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -489,6 +492,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &348195111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348195105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae4d343df21d3a468ffe511559153aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  EnemyData: {fileID: 11400000, guid: 1333719ae9a6d0f4da3da441777f4477, type: 2}
+--- !u!114 &348195112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348195105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6a7b6cafa367345bf4d1285e2a5884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimation
+  animator: {fileID: 348195106}
+--- !u!114 &348195113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348195105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0ca510f1ce38a4ead0de0f47ae39fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  rb: {fileID: 348195107}
+  spriteRenderer: {fileID: 348195109}
 --- !u!1 &436407845
 GameObject:
   m_ObjectHideFlags: 0

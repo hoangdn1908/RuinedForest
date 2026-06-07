@@ -1,16 +1,7 @@
 using UnityEngine;
 
-public class EnemyAnimationStates : MonoBehaviour
+public enum EnemyAnimationStates
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    Idle = 0,
+    Patrol = 1,
 }

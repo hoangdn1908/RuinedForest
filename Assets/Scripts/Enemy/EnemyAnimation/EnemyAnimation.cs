@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class EnemyAnimation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Animator animator;
 
-    // Update is called once per frame
-    void Update()
+    private readonly int stateIdHash = Animator.StringToHash("StateId");
+
+    public void SetStateAnimation(EnemyAnimationStates states)
     {
-        
+        animator.SetInteger(stateIdHash, (int)states);
+        animator.Play(states.ToString());
     }
 }

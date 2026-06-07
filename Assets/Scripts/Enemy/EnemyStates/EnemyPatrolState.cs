@@ -1,16 +1,60 @@
 using UnityEngine;
 
-public class EnemyPatrolState : MonoBehaviour
+public class EnemyPatrolState : EnemyBaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private float patrolDirection = 1;
+    private Transform transform { get { return enemyController.transform; } }
+    public EnemyPatrolState(EnemyController enemyController, EnemyStateMachine enemyStateMachine) : base(enemyController, enemyStateMachine)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        PlayPatrolAnimation();
     }
+
+    public override void LogicUpdate()
+    {
+        if (CheckIdleState()) return;   
+    }
+
+    public override void PhysicUpdate()
+    {
+        Move();
+    }
+
+    private void PlayPatrolAnimation() 
+    {
+        enemyController.enemyAnimation.SetStateAnimation(EnemyAnimationStates.Patrol);
+    }
+
+    private void Move() 
+    {
+        enemyController.enemyMovement.Move(patrolDirection, enemyController.EnemyData.moveSpeed);
+    }
+
+    private void ChangeDirection() 
+    {
+        patrolDirection *= -1;
+    }
+
+    private bool IsReachedPatrolLimit() 
+    {
+        float distanceFromStart = transform.position.x - enemyController.enemyMovement.startPos.x;
+        if (distanceFromStart > 0) return distanceFromStart >= enemyController.EnemyData.patrolDistance;
+        return distanceFromStart <= 0f;
+    }
+
+    private bool CheckIdleState() 
+    {
+        if (IsReachedPatrolLimit()) 
+        {
+            ChangeDirection();
+            enemyStateMachine.ChangeState(enemyController.enemyIdleState);
+            return true;
+        }
+        return false;
+    }
+
 }
