@@ -39,10 +39,12 @@ public class EnemyPatrolState : EnemyBaseState
         patrolDirection *= -1;
     }
 
-    private bool IsReachedPatrolLimit() 
+    private bool IsReachedPatrolLimit()
     {
         float distanceFromStart = transform.position.x - enemyController.enemyMovement.startPos.x;
-        if (distanceFromStart > 0) return distanceFromStart >= enemyController.EnemyData.patrolDistance;
+        float patrolDistance = enemyController.EnemyData.patrolDistance;
+
+        if (patrolDirection > 0f) return distanceFromStart >= patrolDistance;
         return distanceFromStart <= 0f;
     }
 
