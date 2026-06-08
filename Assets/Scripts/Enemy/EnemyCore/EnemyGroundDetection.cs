@@ -2,19 +2,26 @@ using UnityEngine;
 
 public class EnemyGroundDetection : MonoBehaviour
 {
-    [SerializeField] private Transform groundCheckpoint;
-    [SerializeField] private float groundCheckRadius;
-    [SerializeField] private LayerMask groundLayerMask;
-    private bool holdRigidbodyOnGround = true;
+    [Header("Ground Checker")]
+    [SerializeField] private Transform groundCheckPoint;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private bool holdRigidbodyOnGround = true;
+
     private Rigidbody2D rb;
     private float defaultGravityScale;
-    public bool IsGround {  get; private set; }
+
+    public bool IsGrounded { get; private set; }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        defaultGravityScale  = rb.gravityScale;
-        if (groundCheckpoint == null) groundCheckpoint = transform;
+        defaultGravityScale = rb.gravityScale;
+
+        if (groundCheckPoint == null)
+        {
+            groundCheckPoint = transform;
+        }
     }
 
     private void FixedUpdate()
@@ -23,31 +30,41 @@ public class EnemyGroundDetection : MonoBehaviour
         HoldRigidbodyOnGround();
     }
 
-    private void CheckGround() 
+    private void CheckGround()
     {
-        IsGround = Physics2D.OverlapCircle(groundCheckpoint.position, groundCheckRadius, groundLayerMask);
+        IsGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
     }
 
-    private void HoldRigidbodyOnGround() 
+    private void HoldRigidbodyOnGround()
     {
-        if (!holdRigidbodyOnGround) return;
-        if (IsGround) 
+        if (!holdRigidbodyOnGround)
         {
-            rb.gravityScale = 0;
-            if (rb.linearVelocityY < 0f)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocityX, 0f);
-            }
-            else rb.gravityScale = defaultGravityScale;
+            return;
         }
+
+        if (IsGrounded)
+        {
+            rb.gravityScale = 0f;
+
+            if (rb.linearVelocity.y < 0f)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+            }
+
+            return;
+        }
+
+        rb.gravityScale = defaultGravityScale;
     }
 
-#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        if (groundCheckpoint == null) return;
+        if (groundCheckPoint == null)
+        {
+            return;
+        }
+
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(groundCheckpoint.position, groundCheckRadius);
+        Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
     }
-#endif
 }
