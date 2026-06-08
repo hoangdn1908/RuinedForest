@@ -15,3 +15,4 @@ MonoBehaviour:
   idleDuration: 1
   moveSpeed: 2
   patrolDistance: 3
+  detectionRange: 2

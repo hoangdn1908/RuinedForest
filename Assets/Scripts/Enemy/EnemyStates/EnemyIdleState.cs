@@ -17,6 +17,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void LogicUpdate()
     {
+        if (CheckChaseState()) return;
         CheckPatrolState();
     }
 
@@ -42,5 +43,15 @@ public class EnemyIdleState : EnemyBaseState
         {
             enemyStateMachine.ChangeState(enemyController.enemyPatrolState);
         }
+    }
+
+    private bool CheckChaseState() 
+    {
+        if (enemyController.enemyDetection.CanDetectPlayer(enemyController.EnemyData.detectionRange)) 
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyChaseState);
+            return true;
+        }
+        return false;
     }
 }

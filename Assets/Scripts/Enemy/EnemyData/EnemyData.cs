@@ -9,4 +9,6 @@ public class EnemyData : ScriptableObject
     public float moveSpeed;
     [Header("Patrol")]
     public float patrolDistance;
+    [Header("Dectection")]
+    public float detectionRange;
 }

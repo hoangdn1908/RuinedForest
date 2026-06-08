@@ -16,6 +16,7 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void LogicUpdate()
     {
+        if (CheckChaseState()) return;
         if (CheckIdleState()) return;   
     }
 
@@ -54,6 +55,16 @@ public class EnemyPatrolState : EnemyBaseState
         {
             ChangeDirection();
             enemyStateMachine.ChangeState(enemyController.enemyIdleState);
+            return true;
+        }
+        return false;
+    }
+
+    private bool CheckChaseState()
+    {
+        if (enemyController.enemyDetection.CanDetectPlayer(enemyController.EnemyData.detectionRange))
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyChaseState);
             return true;
         }
         return false;
