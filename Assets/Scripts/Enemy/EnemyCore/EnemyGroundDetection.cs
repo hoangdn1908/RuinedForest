@@ -4,7 +4,7 @@ public class EnemyGroundDetection : MonoBehaviour
 {
     [Header("Ground Checker")]
     [SerializeField] private Transform groundCheckPoint;
-    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool holdRigidbodyOnGround = true;
 
@@ -63,7 +63,6 @@ public class EnemyGroundDetection : MonoBehaviour
         {
             return;
         }
-
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
     }
