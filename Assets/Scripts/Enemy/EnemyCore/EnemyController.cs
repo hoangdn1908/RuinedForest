@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public EnemyIdleState enemyIdleState { get; private set; }
     public EnemyPatrolState enemyPatrolState { get; private set; }
     public EnemyChaseState enemyChaseState { get; private set; }
+    public EnemyAttackState enemyAttackState { get; set; }
     #endregion
 
     private void Awake()
@@ -48,7 +49,7 @@ public class EnemyController : MonoBehaviour
         enemyDetection = GetComponent<EnemyDetection>();
     }
 
-    private void IninializeStateMachine() 
+    public virtual void IninializeStateMachine() 
     {
         enemyStateMachine = new EnemyStateMachine();
         enemyIdleState = new EnemyIdleState(this, enemyStateMachine);
