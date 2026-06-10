@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
   cameraTransform: {fileID: 519420032}
-  parallaxSpeed: 0.047
+  parallaxSpeed: 0.079
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
