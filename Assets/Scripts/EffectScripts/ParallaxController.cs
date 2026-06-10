@@ -1,113 +1,157 @@
 using UnityEngine;
-using Unity.Cinemachine;
 
-// Chạy sau CinemachineBrain (order âm) để đọc đúng vị trí camera sau khi Cinemachine cập nhật
+/// <summary>
+/// Keeps the background aligned with the camera and scrolls each layer for parallax.
+/// </summary>
 [DefaultExecutionOrder(100)]
 public class ParallaxController : MonoBehaviour
 {
-    [Tooltip("Tốc độ parallax. Giá trị càng nhỏ, lớp nền xa di chuyển càng ít.")]
-    [Range(0.001f, 0.1f)]
-    public float parallaxSpeed = 0.01f;
+    private static readonly int MainTexId = Shader.PropertyToID("_MainTex");
+    private static readonly int BaseMapId = Shader.PropertyToID("_BaseMap");
+
+    [Tooltip("Main Camera transform. If empty, the script uses Camera.main.")]
+    [SerializeField] private Transform cameraTransform;
+
+    [Tooltip("Texture scroll multiplier. Smaller values make the parallax movement more subtle.")]
+    [Range(0.001f, 0.2f)]
+    [SerializeField] private float parallaxSpeed = 0.01f;
 
     private Transform cam;
-    private Vector3 camPrevPos;
-    private bool isInitialized = false;
-
-    private GameObject[] backgrounds;
     private Material[] materials;
-    private float[] backSpeed;
-    private float[] textureOffsets;
+    private float[] layerSpeeds;
+    private int[] texturePropertyIds;
+    private Vector2[] initialTextureOffsets;
+
+    private float initialCameraX;
+    private float initialBackgroundX;
+    private bool initialized;
 
     private void Start()
     {
-        cam = Camera.main.transform;
+        cam = cameraTransform != null ? cameraTransform : Camera.main?.transform;
+
+        if (cam == null)
+        {
+            Debug.LogError("[ParallaxController] Main Camera was not found.", this);
+            enabled = false;
+            return;
+        }
 
         int count = transform.childCount;
-        backgrounds = new GameObject[count];
-        materials    = new Material[count];
-        backSpeed    = new float[count];
-        textureOffsets = new float[count];
+        materials = new Material[count];
+        layerSpeeds = new float[count];
+        texturePropertyIds = new int[count];
+        initialTextureOffsets = new Vector2[count];
+
+        float maxDistanceFromCamera = 0f;
+        for (int i = 0; i < count; i++)
+        {
+            float distance = Mathf.Abs(transform.GetChild(i).position.z - cam.position.z);
+            maxDistanceFromCamera = Mathf.Max(maxDistanceFromCamera, distance);
+        }
 
         for (int i = 0; i < count; i++)
         {
-            backgrounds[i] = transform.GetChild(i).gameObject;
-            var rend = backgrounds[i].GetComponent<Renderer>();
-            // Tạo material instance riêng để tránh thay đổi shared material
-            materials[i] = rend.material;
-            // Đảm bảo texture dùng Repeat wrap mode (chống vỡ ảnh)
-            if (materials[i].mainTexture != null)
-                materials[i].mainTexture.wrapMode = TextureWrapMode.Repeat;
-            // Reset offset
-            materials[i].SetTextureOffset("_MainTex", Vector2.zero);
-            textureOffsets[i] = 0f;
+            InitializeLayer(i, maxDistanceFromCamera);
         }
     }
 
-    private void CalculateLayerSpeeds()
+    private void InitializeLayer(int index, float maxDistanceFromCamera)
     {
-        // Tìm lớp xa nhất so với camera (Z lớn nhất)
-        float maxZDist = 0f;
-        for (int i = 0; i < backgrounds.Length; i++)
+        Transform child = transform.GetChild(index);
+        Renderer layerRenderer = child.GetComponent<Renderer>();
+
+        if (layerRenderer == null || layerRenderer.sharedMaterial == null)
         {
-            float z = backgrounds[i].transform.position.z - cam.position.z;
-            if (z > maxZDist) maxZDist = z;
+            Debug.LogWarning($"[ParallaxController] Layer '{child.name}' needs a Renderer with a material.", child);
+            return;
         }
 
-        for (int i = 0; i < backgrounds.Length; i++)
+        Material material = new Material(layerRenderer.sharedMaterial);
+        materials[index] = material;
+        layerRenderer.sharedMaterial = material;
+
+        int texturePropertyId = GetTexturePropertyId(material);
+        texturePropertyIds[index] = texturePropertyId;
+
+        if (texturePropertyId != 0)
         {
-            float z = backgrounds[i].transform.position.z - cam.position.z;
-            // Lớp xa nhất (z = maxZDist) → speed = 0 (không cuộn)
-            // Lớp gần nhất (z = 0) → speed = 1 (cuộn nhanh nhất)
-            backSpeed[i] = (maxZDist > 0) ? (1f - z / maxZDist) : 0f;
+            initialTextureOffsets[index] = material.GetTextureOffset(texturePropertyId);
+
+            Texture texture = material.GetTexture(texturePropertyId);
+            if (texture != null)
+            {
+                texture.wrapMode = TextureWrapMode.Repeat;
+            }
         }
+        else
+        {
+            Debug.LogWarning(
+                $"[ParallaxController] Material on layer '{child.name}' has no _MainTex or _BaseMap property.",
+                child);
+        }
+
+        float distance = Mathf.Abs(child.position.z - cam.position.z);
+        layerSpeeds[index] = maxDistanceFromCamera > 0f
+            ? 1f - distance / maxDistanceFromCamera
+            : 0f;
+    }
+
+    private static int GetTexturePropertyId(Material material)
+    {
+        if (material.HasProperty(MainTexId))
+        {
+            return MainTexId;
+        }
+
+        return material.HasProperty(BaseMapId) ? BaseMapId : 0;
     }
 
     private void LateUpdate()
     {
-        if (!isInitialized)
+        if (!initialized)
         {
-            // Đợi ít nhất 2 frame để Cinemachine hoàn tất snap camera đến đúng vị trí player
-            if (Time.frameCount < 3)
-            {
-                // Snap background vào đúng vị trí camera trong khi chờ
-                transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
-                camPrevPos = cam.position;
-                return;
-            }
-
-            // Lúc này Cinemachine đã settle xong → lưu vị trí làm mốc
-            camPrevPos = cam.position;
-            transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
-            CalculateLayerSpeeds();
-            isInitialized = true;
+            // LateUpdate runs after CinemachineBrain, so these are the actual starting positions.
+            initialCameraX = cam.position.x;
+            initialBackgroundX = transform.position.x;
+            initialized = true;
             return;
         }
 
-        // Tính mức thay đổi vị trí camera trong frame này
-        float deltaX = cam.position.x - camPrevPos.x;
-        camPrevPos = cam.position;
+        float cameraDeltaX = cam.position.x - initialCameraX;
 
-        // Kéo toàn bộ background parent theo camera X (để luôn nằm trong viewport)
-        transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
+        Vector3 backgroundPosition = transform.position;
+        backgroundPosition.x = initialBackgroundX + cameraDeltaX;
+        transform.position = backgroundPosition;
 
-        // Cuộn texture từng lớp với tốc độ riêng
-        for (int i = 0; i < backgrounds.Length; i++)
+        for (int i = 0; i < materials.Length; i++)
         {
-            float speed = backSpeed[i] * parallaxSpeed;
-            textureOffsets[i] += deltaX * speed;
-            materials[i].SetTextureOffset("_MainTex", new Vector2(textureOffsets[i], 0f));
+            Material material = materials[i];
+            int texturePropertyId = texturePropertyIds[i];
+
+            if (material == null || texturePropertyId == 0)
+            {
+                continue;
+            }
+
+            Vector2 offset = initialTextureOffsets[i];
+            offset.x += cameraDeltaX * layerSpeeds[i] * parallaxSpeed;
+            material.SetTextureOffset(texturePropertyId, offset);
         }
     }
 
     private void OnDestroy()
     {
-        // Giải phóng material instance để tránh memory leak
-        if (materials != null)
+        if (materials == null)
         {
-            foreach (var mat in materials)
+            return;
+        }
+
+        foreach (Material material in materials)
+        {
+            if (material != null)
             {
-                if (mat != null)
-                    Destroy(mat);
+                Destroy(material);
             }
         }
     }

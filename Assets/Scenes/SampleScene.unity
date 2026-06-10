@@ -514,7 +514,7 @@ Transform:
   m_GameObject: {fileID: 480410754}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.25489, y: -4.83915, z: 0}
+  m_LocalPosition: {x: -14.27, y: -5.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -535,7 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ee3886f0c754b43bc3943ee13d0033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
-  parallaxSpeed: 0.01
+  cameraTransform: {fileID: 519420032}
+  parallaxSpeed: 0.047
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
