@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     {
         InitializeComponent();
         InitializeStateMachine();
-        playerHealth.SetCurrentHealth(PlayerData.maxHealth);
     }
 
     private void Start()
