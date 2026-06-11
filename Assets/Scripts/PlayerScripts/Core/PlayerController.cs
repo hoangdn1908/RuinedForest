@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public PlayerGroundDetector playerGroundDetector { get; private set; }
     public PlayerEffects playerEffects { get; private set; }
     public PlayerHealth playerHealth { get; private set; }
+    public PlayerCombat playerCombat { get; private set; }
     #endregion
 
     #region State Machine
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         playerGroundDetector = GetComponent<PlayerGroundDetector>();
         playerEffects = GetComponent<PlayerEffects>();
         playerHealth = GetComponent<PlayerHealth>();
+        playerCombat = GetComponent<PlayerCombat>();
     }
 
     private void InitializeStateMachine() 

@@ -17,6 +17,11 @@ public class PlayerAttackState : PlayerBaseState
         ResetAttackInput();
     }
 
+    public override void Exit()
+    {
+        playerController.playerCombat.ResetAttack();
+    }
+
     public override void LogicUpdate()
     {
         CheckDeathState();
