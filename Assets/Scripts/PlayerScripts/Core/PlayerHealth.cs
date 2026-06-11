@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     private float currentHealth;
+    [SerializeField] private PlayerController playerController;
 
     public void SetCurrentHealth(float health) 
     {
@@ -21,13 +22,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void Die() 
     {
-        PlayerController playerController = GetComponent<PlayerController>();
         if (playerController == null && playerController.PlayerDeathState == null) return;
         playerController.playerStateMachine.ChangeState(playerController.PlayerDeathState);
     }
 
     public void DisablePlayer() 
     {
-    
+        playerController.enabled = false;
     }
 }
