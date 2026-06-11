@@ -14,6 +14,7 @@ public class PlayerRunState : PlayerBaseState
 
     public override void LogicUpdate()
     {
+        CheckDeathState();
         CheckFallState();
     }
     public override void PhysicUpdate()
@@ -70,6 +71,14 @@ public class PlayerRunState : PlayerBaseState
         if (!playerController.playerGroundDetector.IsGround()) 
         {
             playerStateMachine.ChangeState(playerController.playerFallState);
+        }
+    }
+
+    private void CheckDeathState()
+    {
+        if (!playerController.playerHealth.IsAlive())
+        {
+            playerStateMachine.ChangeState(playerController.PlayerDeathState);
         }
     }
     #endregion

@@ -15,6 +15,7 @@ public class PlayerFallState : PlayerBaseState
 
     public override void LogicUpdate()
     {
+        CheckDeathState();
         ExitFall();
     }
 
@@ -66,6 +67,13 @@ public class PlayerFallState : PlayerBaseState
         if (playerController.playerInput.AttackPressed)
         {
             playerStateMachine.ChangeState(playerController.playerAttackState);
+        }
+    }
+    private void CheckDeathState()
+    {
+        if (!playerController.playerHealth.IsAlive())
+        {
+            playerStateMachine.ChangeState(playerController.PlayerDeathState);
         }
     }
 }

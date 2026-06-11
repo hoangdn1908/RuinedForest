@@ -18,6 +18,7 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void LogicUpdate()
     {
+        CheckDeathState();
         ChangeToFallState();
     }
     public override void PhysicUpdate()
@@ -73,6 +74,14 @@ public class PlayerJumpState : PlayerBaseState
         if (playerController.playerInput.AttackPressed)
         {
             playerStateMachine.ChangeState(playerController.playerAttackState);
+        }
+    }
+
+    private void CheckDeathState()
+    {
+        if (!playerController.playerHealth.IsAlive())
+        {
+            playerStateMachine.ChangeState(playerController.PlayerDeathState);
         }
     }
 

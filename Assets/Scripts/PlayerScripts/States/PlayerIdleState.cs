@@ -15,6 +15,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void LogicUpdate()
     {
+        CheckDeathState();
         CheckFallState();
     }
     public override void HandleInput() 
@@ -66,6 +67,14 @@ public class PlayerIdleState : PlayerBaseState
         if (!playerController.playerGroundDetector.IsGround())
         {
             playerStateMachine.ChangeState(playerController.playerFallState);
+        }
+    }
+
+    private void CheckDeathState() 
+    {
+        if (!playerController.playerHealth.IsAlive()) 
+        {
+            playerStateMachine.ChangeState(playerController.PlayerDeathState);
         }
     }
     #endregion

@@ -19,23 +19,24 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void LogicUpdate()
     {
-        DecreaseAttackTimer();
-        if (attackTimer <= 0) 
+        CheckDeathState();
+        AttackEnemy();
+    }
+
+    private void AttackEnemy() 
+    {
+        attackTimer -= Time.deltaTime;
+        if (attackTimer <= 0)
         {
             ExitAttack();
         }
     }
-
 
     public void SetAttackTimer() 
     {
         attackTimer = playerController.PlayerData.attackDuration;
     }
 
-    public void DecreaseAttackTimer() 
-    {
-        attackTimer -= Time.deltaTime;
-    }
     private void PlayAttackAnimation() 
     {
         playerController.playerAnimation.SetStateAnimation(PlayerAnimationStates.Attack);
@@ -64,5 +65,13 @@ public class PlayerAttackState : PlayerBaseState
             }
         }
         else playerStateMachine.ChangeState(playerController.playerFallState);
+    }
+
+    private void CheckDeathState()
+    {
+        if (!playerController.playerHealth.IsAlive())
+        {
+            playerStateMachine.ChangeState(playerController.PlayerDeathState);
+        }
     }
 }
