@@ -7,4 +7,5 @@ public enum PlayerAnimationStates
     Jump = 2,
     Fall = 3,
     Attack = 4,
+    Death = 5,
 }
