@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAnimation playerAnimation {  get; private set; }
     public PlayerGroundDetector playerGroundDetector { get; private set; }
     public PlayerEffects playerEffects { get; private set; }
+    public PlayerHealth playerHealth { get; private set; }
     #endregion
 
     #region State Machine
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         InitializeComponent();
         InitializeStateMachine();
+        playerHealth.SetCurrentHealth(PlayerData.maxHealth);
     }
 
     private void Start()
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerGroundDetector = GetComponent<PlayerGroundDetector>();
         playerEffects = GetComponent<PlayerEffects>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void InitializeStateMachine() 
