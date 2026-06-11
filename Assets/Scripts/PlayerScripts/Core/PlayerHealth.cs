@@ -1,33 +1,30 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     private float currentHealth;
-    [SerializeField] private PlayerController playerController;
+    private PlayerController playerController;
 
-    public void SetCurrentHealth(float health) 
+    private void Awake()
     {
-        currentHealth = health;
+        playerController = GetComponent<PlayerController>();
+        SetCurrentHealth();
     }
 
+    private void SetCurrentHealth() 
+    {
+        currentHealth = playerController.PlayerData.maxHealth;
+    }
     public void TakeDamage(float damage) 
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
-        if (currentHealth <= 0) 
-        {
-            Die();
-        }
     }
 
-    public void Die() 
+    public bool IsAlive() 
     {
-        if (playerController == null && playerController.PlayerDeathState == null) return;
-        playerController.playerStateMachine.ChangeState(playerController.PlayerDeathState);
+        return currentHealth > 0;
     }
-
-    public void DisablePlayer() 
-    {
-        playerController.enabled = false;
-    }
+  
 }
