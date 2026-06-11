@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   idleDuration: 1
   moveSpeed: 2
-  patrolDistance: 3
-  detectionRange: 2
-  attackRange: 0.5
-  attackDuration: 0.2
+  patrolDistance: 0
+  detectionRange: 0
+  attackRange: 0
+  attackDuration: 0

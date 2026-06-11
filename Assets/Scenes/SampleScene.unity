@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 348195116}
   m_Layer: 0
   m_Name: Goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8733,6 +8733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941888241}
   - component: {fileID: 1941888242}
+  - component: {fileID: 1941888243}
   m_Layer: 6
   m_Name: HitBox
   m_TagString: Player
@@ -8762,7 +8763,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941888240}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -8801,6 +8802,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.71998024, y: 0.23907995}
   m_EdgeRadius: 0
+--- !u!114 &1941888243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941888240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f722e8ffaa9553f49b13072a19df6712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHitBox
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
