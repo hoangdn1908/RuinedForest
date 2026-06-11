@@ -17,4 +17,5 @@ public class PlayerDeathState : PlayerBaseState
     {
         playerController.playerAnimation.SetStateAnimation(PlayerAnimationStates.Death);
     }
+
 }
