@@ -18,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
     { 
         attackPoint.enabled = false;
     }
+
     public void ResetAttack() 
     {
         if (attackPoint == null) return;
