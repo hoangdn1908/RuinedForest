@@ -12,6 +12,9 @@ public class PlayerHitBox : MonoBehaviour
     {
         if (collision.CompareTag("Enemy")) 
         {
+            EnemyHealth enemyHealth = collision.GetComponentInParent<EnemyHealth>();
+            if (enemyHealth == null) return;
+            enemyHealth.TakeDamage(damage);
             Debug.Log(damage);
         }
     }

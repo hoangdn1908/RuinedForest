@@ -16,6 +16,7 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void LogicUpdate()
     {
+        if (CheckDeathState()) return;
         if (CheckChaseState()) return;
         if (CheckIdleState()) return;   
     }
@@ -48,7 +49,7 @@ public class EnemyPatrolState : EnemyBaseState
         if (patrolDirection > 0f) return distanceFromStart >= patrolDistance;
         return distanceFromStart <= 0f;
     }
-
+    #region Check State
     private bool CheckIdleState() 
     {
         if (IsReachedPatrolLimit()) 
@@ -69,5 +70,16 @@ public class EnemyPatrolState : EnemyBaseState
         }
         return false;
     }
+
+    private bool CheckDeathState()
+    {
+        if (!enemyController.enemyHealth.IsAlive())
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyDeathState);
+            return true;
+        }
+        return false;
+    }
+    #endregion
 
 }

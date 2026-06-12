@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 348195114}
   - component: {fileID: 348195115}
   - component: {fileID: 348195116}
+  - component: {fileID: 348195117}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -362,7 +363,7 @@ Transform:
   m_GameObject: {fileID: 348195105}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.38, y: -2.5, z: 0}
+  m_LocalPosition: {x: -8.39, y: -1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -443,6 +444,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMeleeController
   EnemyData: {fileID: 11400000, guid: 1333719ae9a6d0f4da3da441777f4477, type: 2}
+--- !u!114 &348195117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348195105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22aeb07acbc01124791ef7dfe9d31f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
 --- !u!1 &436407845
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +683,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.569998, y: -1.205205, z: -10}
+  m_LocalPosition: {x: -17.789997, y: -1.205205, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -957,7 +970,7 @@ Transform:
   m_GameObject: {fileID: 742377805}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.57, y: -1.47, z: 0}
+  m_LocalPosition: {x: -17.79, y: -1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4728,7 +4741,7 @@ Transform:
   m_GameObject: {fileID: 1275807006}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.14044, y: -0.80359, z: -10}
+  m_LocalPosition: {x: -17.360441, y: -0.80359, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4832,7 +4845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1299721860
 Transform:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class EnemyMeleeAttackState : EnemyAttackState
 
     public override void LogicUpdate()
     {
+        CheckDeathState();
         AttackPlayer();
     }
 
@@ -47,5 +48,15 @@ public class EnemyMeleeAttackState : EnemyAttackState
         {
             DecideNextState();
         }
+    }
+
+    private bool CheckDeathState()
+    {
+        if (!enemyController.enemyHealth.IsAlive())
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyDeathState);
+            return true;
+        }
+        return false;
     }
 }

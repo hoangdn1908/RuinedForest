@@ -14,6 +14,7 @@ public class EnemyChaseState : EnemyBaseState
 
     public override void LogicUpdate()
     {
+        if (CheckDeathState()) return;
         if (CheckAttackState()) return;
         if (CheckPatrolState()) return;
     }
@@ -38,6 +39,7 @@ public class EnemyChaseState : EnemyBaseState
         enemyController.enemyMovement.Move(GetMoveDirection(), enemyController.EnemyData.moveSpeed * 1.5f);
     }
 
+    #region Check State
     private bool CheckPatrolState() 
     {
         if (!enemyController.enemyDetection.CanDetectPlayer(enemyController.EnemyData.detectionRange))
@@ -57,4 +59,15 @@ public class EnemyChaseState : EnemyBaseState
         }
         return false;
     }
+
+    private bool CheckDeathState()
+    {
+        if (!enemyController.enemyHealth.IsAlive())
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyDeathState);
+            return true;
+        }
+        return false;
+    }
+    #endregion
 }
