@@ -6,6 +6,7 @@ public class PlayerHitBox : MonoBehaviour
 
     private void Awake()
     {
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
