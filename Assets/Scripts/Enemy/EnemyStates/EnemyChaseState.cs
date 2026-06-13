@@ -37,7 +37,7 @@ public class EnemyChaseState : EnemyBaseState
 
     private void ChasePlayer() 
     {
-        enemyController.enemyMovement.Move(GetMoveDirection(), enemyController.EnemyData.moveSpeed * 1.5f);
+        enemyController.enemyMovement.Move(GetMoveDirection(), enemyController.EnemyData.moveSpeed * 1.2f);
     }
 
     #region Check State
