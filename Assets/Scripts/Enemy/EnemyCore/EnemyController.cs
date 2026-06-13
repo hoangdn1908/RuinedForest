@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public EnemyAnimation  enemyAnimation { get; private set; }
     public EnemyDetection enemyDetection { get; private set; }
     public EnemyHealth enemyHealth { get; private set; }
+    public EnemyCombat enemyCombat { get; private set; }
     #endregion
 
     #region State machine
@@ -50,6 +51,7 @@ public class EnemyController : MonoBehaviour
         enemyAnimation = GetComponent<EnemyAnimation>();
         enemyDetection = GetComponent<EnemyDetection>();
         enemyHealth = GetComponent<EnemyHealth>();
+        enemyCombat = GetComponent<EnemyCombat>();
     }
 
     public virtual void IninializeStateMachine() 

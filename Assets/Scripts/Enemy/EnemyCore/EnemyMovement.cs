@@ -4,6 +4,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    public int FacingDirection { get; private set; } = 1;
     public Vector2 startPos {  get; private set; }
 
     public void SetStartPos(Vector2 startPos) 
@@ -26,10 +27,12 @@ public class EnemyMovement : MonoBehaviour
     {
         if (direction > 0f)
         {
+            FacingDirection = 1;
             spriteRenderer.flipX = false;
         }
         else if (direction < 0f) 
         {
+            FacingDirection = -1;
             spriteRenderer.flipX = true;
         }
     }

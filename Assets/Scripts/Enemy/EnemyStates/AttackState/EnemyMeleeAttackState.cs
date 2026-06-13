@@ -21,6 +21,11 @@ public class EnemyMeleeAttackState : EnemyAttackState
         AttackPlayer();
     }
 
+    public override void Exit()
+    {
+        enemyController.enemyCombat.EndAttack();
+    }
+
     private void PlayAttackAnimation() 
     {
         enemyController.enemyAnimation.SetStateAnimation(EnemyAnimationStates.Attack);

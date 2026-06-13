@@ -14,6 +14,7 @@ public class EnemyData : ScriptableObject
     [Header("Attack")]
     public float attackRange;
     public float attackDuration;
+    public float attackDamage;
     [Header("Health")]
     public float maxHealth;
 }
