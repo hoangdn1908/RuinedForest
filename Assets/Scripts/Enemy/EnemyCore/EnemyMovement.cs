@@ -18,6 +18,12 @@ public class EnemyMovement : MonoBehaviour
         FlipEnemy(direction);
     }
 
+    public void FaceTarget(float targetX)
+    {
+        float direction = Mathf.Sign(targetX - transform.position.x);
+        FlipEnemy(direction);
+    }
+
     public void Stop() 
     {
         rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
