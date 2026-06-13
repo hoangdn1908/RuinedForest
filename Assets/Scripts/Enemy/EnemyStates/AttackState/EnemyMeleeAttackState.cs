@@ -23,7 +23,7 @@ public class EnemyMeleeAttackState : EnemyAttackState
 
     public override void Exit()
     {
-        enemyController.enemyCombat.EndAttack();
+        //enemyController.enemyCombat.EndAttack();
     }
 
     private void PlayAttackAnimation() 
@@ -43,7 +43,9 @@ public class EnemyMeleeAttackState : EnemyAttackState
     private void DecideNextState() 
     {
         if (enemyController.enemyDetection.CanAttackPlayer(enemyController.EnemyData.attackRange)) SetAttackTimer();
-        else enemyStateMachine.ChangeState(enemyController.enemyChaseState);
+        else if (!enemyController.enemyDetection.CanAttackPlayer(enemyController.EnemyData.attackRange) && enemyController.EnemyData.canChase)
+            enemyStateMachine.ChangeState(enemyController.enemyChaseState);
+        else enemyStateMachine.ChangeState(enemyController.enemyIdleState);
     }
 
     private void AttackPlayer() 

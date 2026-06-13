@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe7a695c1e50de42abdb550b5324666, type: 3}
   m_Name: BomberGoblin
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  idleDuration: 10
+  idleDuration: 1
   moveSpeed: 0
   patrolDistance: 0
   canPatrol: 0
+  canChase: 0
   detectionRange: 0
   attackRange: 2
   attackDuration: 0.45

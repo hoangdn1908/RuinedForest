@@ -51,7 +51,7 @@ public class EnemyIdleState : EnemyBaseState
 
     private bool CheckChaseState() 
     {
-        if (enemyController.enemyDetection.CanDetectPlayer(enemyController.EnemyData.detectionRange)) 
+        if (enemyController.enemyDetection.CanDetectPlayer(enemyController.EnemyData.detectionRange) && enemyController.EnemyData.canChase) 
         {
             enemyStateMachine.ChangeState(enemyController.enemyChaseState);
             return true;
