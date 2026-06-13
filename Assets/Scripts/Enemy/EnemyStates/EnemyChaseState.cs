@@ -31,6 +31,7 @@ public class EnemyChaseState : EnemyBaseState
 
     private float GetMoveDirection() 
     {
+        if (enemyController.enemyDetection.CurrentTarget == null) return 1;
         return Mathf.Sign(enemyController.enemyDetection.CurrentTarget.position.x - enemyController.transform.position.x);
     }
 
