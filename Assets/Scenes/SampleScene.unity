@@ -1165,6 +1165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
   attackPoint: {fileID: 1941888242}
+  attackTransform: {fileID: 1941888241}
 --- !u!114 &742377818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8906,6 +8907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f722e8ffaa9553f49b13072a19df6712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHitBox
+  playerController: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

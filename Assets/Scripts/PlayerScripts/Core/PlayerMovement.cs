@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Component")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    public int FacingDirection { get; private set; } = 1;
 
     #region Run
     public void Run(float direction, float moveSpeed) 
@@ -22,10 +23,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (direction > 0f) 
         {
+            FacingDirection = 1;
             spriteRenderer.flipX = false;
         }
         else if(direction < 0f) 
         {
+            FacingDirection = -1;
             spriteRenderer.flipX = true;
         }
     }
