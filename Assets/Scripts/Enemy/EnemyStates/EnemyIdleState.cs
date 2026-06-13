@@ -17,8 +17,10 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void LogicUpdate()
     {
+
         if(CheckDeathState()) return;
-        if (CheckChaseState()) return;
+        if(CheckAttackState()) return;
+        if(CheckChaseState()) return;
         CheckPatrolState();
     }
 
@@ -41,7 +43,7 @@ public class EnemyIdleState : EnemyBaseState
     private void CheckPatrolState() 
     {
         idleTimer -= Time.deltaTime;
-        if (idleTimer <= 0)
+        if (idleTimer <= 0 && enemyController.EnemyData.canPatrol)
         {
             enemyStateMachine.ChangeState(enemyController.enemyPatrolState);
         }
@@ -62,6 +64,16 @@ public class EnemyIdleState : EnemyBaseState
         if (!enemyController.enemyHealth.IsAlive()) 
         {
             enemyStateMachine.ChangeState(enemyController.enemyDeathState);
+            return true;
+        }
+        return false;
+    }
+
+    private bool CheckAttackState()
+    {
+        if (enemyController.enemyDetection.CanAttackPlayer(enemyController.EnemyData.attackRange))
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyAttackState);
             return true;
         }
         return false;
