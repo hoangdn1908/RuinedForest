@@ -92,6 +92,7 @@ public class BombController : MonoBehaviour
         if (!isExploding && other.CompareTag(playerTag))
         {
             Explosion();
+            Debug.Log("Hello");
         }
     }
     #endregion
