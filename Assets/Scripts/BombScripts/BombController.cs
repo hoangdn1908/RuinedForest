@@ -58,7 +58,7 @@ public class BombController : MonoBehaviour
 
     private bool HasReachTarget()
     {
-        return GetNormalizedTime() >= 2f;
+        return GetNormalizedTime() >= 1.5f;
     }
 
     private Vector3 CalculateHorizontalPosition(float direction)
@@ -99,6 +99,5 @@ public class BombController : MonoBehaviour
         yield return new WaitForSeconds(explosionDuration);
         pool.ReturnToPool(gameObject);
     }
-
     #endregion
 }

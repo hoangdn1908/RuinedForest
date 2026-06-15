@@ -49,6 +49,9 @@ TagManager:
   - name: Deco
     uniqueID: 2550253897
     locked: 0
+  - name: Bomb
+    uniqueID: 3055618337
+    locked: 0
   - name: Ground
     uniqueID: 2679398575
     locked: 0
