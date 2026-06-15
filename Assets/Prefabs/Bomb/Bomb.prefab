@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4134375431209561066}
   - component: {fileID: 9213597775452723463}
   - component: {fileID: 6485795869824239436}
+  - component: {fileID: 7217292377893330090}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -132,7 +133,6 @@ MonoBehaviour:
   arcHeight: 2
   explosionDuration: 0.35
   animator: {fileID: 4134375431209561066}
-  playerTag: Player
 --- !u!58 &6485795869824239436
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,9 +163,21 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.28125
+--- !u!114 &7217292377893330090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158822351578379385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b4c3813094ad7459559a604e13b2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BombCollision

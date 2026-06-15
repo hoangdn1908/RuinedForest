@@ -8,12 +8,11 @@ public class BombController : MonoBehaviour
     [SerializeField] private float arcHeight = 2f;
     [SerializeField] private float explosionDuration = 0.2f;
     [SerializeField] private Animator animator;
-    [SerializeField] private string playerTag = "Player";
     private ObjectPool pool;
     private Vector3 startPos;
     private Vector3 targetPos;
     private float timer;
-    private bool isExploding;
+    public bool isExploding {  get; private set; }
 
     #region Initial
     public void Initialize(Vector3 startPos, Vector3 targetPos, ObjectPool pool)
@@ -28,7 +27,7 @@ public class BombController : MonoBehaviour
     {
         timer = 0f;
         isExploding = false;
-        animator.SetBool("isExplore", false);
+        animator.SetBool("isExploding", false);
         transform.position = startPos;
     }
     #endregion
@@ -59,7 +58,7 @@ public class BombController : MonoBehaviour
 
     private bool HasReachTarget()
     {
-        return GetNormalizedTime() >= 1f;
+        return GetNormalizedTime() >= 2f;
     }
 
     private Vector3 CalculateHorizontalPosition(float direction)
@@ -86,35 +85,20 @@ public class BombController : MonoBehaviour
     }
     #endregion
 
-    #region Collision
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!isExploding && other.CompareTag(playerTag))
-        {
-            Explosion();
-            Debug.Log("Hello");
-        }
-    }
-    #endregion
-
     #region Explosion
-    private void Explosion()
+    public void Explosion()
     {
         if (isExploding) return;
         isExploding = true;
-        animator.SetBool("isExplore", true);
+        animator.SetBool("isExploding", true);
         StartCoroutine(WaitAndReturnToPool());
     }
 
     private IEnumerator WaitAndReturnToPool()
     {
         yield return new WaitForSeconds(explosionDuration);
-        ReturnToPool();
-    }
-
-    private void ReturnToPool()
-    {
         pool.ReturnToPool(gameObject);
     }
+
     #endregion
 }
