@@ -4,6 +4,7 @@ public class UiController : MonoBehaviour
 {
     public static UiController Instance;
     public CoinUi coinUi {  get; private set; }
+    public PlayerHealthBarUI playerHealthBarUI { get; private set; }
 
 
     private void Awake()
@@ -15,6 +16,7 @@ public class UiController : MonoBehaviour
     private void InitializeUI() 
     {
         coinUi = GetComponentInChildren<CoinUi>();
+        playerHealthBarUI = GetComponentInChildren<PlayerHealthBarUI>();
     }
 
     private void SetSingleTon() 

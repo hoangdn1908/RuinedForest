@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    public  static Action<float, float> OnHealthChanged;
     private float currentHealth;
     private PlayerController playerController;
 
@@ -10,6 +12,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         playerController = GetComponent<PlayerController>();
         SetCurrentHealth();
+        OnHealthChanged?.Invoke(currentHealth, playerController.PlayerData.maxHealth);
     }
 
     private void SetCurrentHealth() 
@@ -20,6 +23,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
+        OnHealthChanged?.Invoke(currentHealth, playerController.PlayerData.maxHealth);
     }
 
     public bool IsAlive() 
