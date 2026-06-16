@@ -10,6 +10,7 @@ public class CoinController : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
+            UpdateAddCoin();
             PlayHitAnimation();
             StartCoroutine(WaitAndHide());
         }
@@ -24,5 +25,10 @@ public class CoinController : MonoBehaviour
     {
         yield return new WaitForSeconds(hitDuration);
         gameObject.SetActive(false);
+    }
+
+    private void UpdateAddCoin() 
+    {
+        UiController.Instance.coinUi.AddCoin(1);
     }
 }
