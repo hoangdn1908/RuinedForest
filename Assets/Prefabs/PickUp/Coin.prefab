@@ -164,5 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a483437547e64f4cb018d2c371915fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinController
+  coinCollider: {fileID: 4373160582352086859}
   animator: {fileID: 8806169372315041725}
   hitDuration: 0.4

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinController : MonoBehaviour
 {
     public static Action<int> OnCoinSelected;
+    [SerializeField] private Collider2D coinCollider;
     [SerializeField] private Animator animator;
     [SerializeField] private float hitDuration;
 
@@ -29,4 +30,8 @@ public class CoinController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void EndCollider() 
+    {
+        coinCollider.enabled = false;
+    }
 }
