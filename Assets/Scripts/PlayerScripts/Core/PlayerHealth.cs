@@ -12,18 +12,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         playerController = GetComponent<PlayerController>();
         SetCurrentHealth();
-        OnHealthChanged?.Invoke(currentHealth, playerController.PlayerData.maxHealth);
+        SetHealthChanged();
     }
 
     private void SetCurrentHealth() 
     {
         currentHealth = playerController.PlayerData.maxHealth;
     }
+
     public void TakeDamage(float damage) 
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
-        OnHealthChanged?.Invoke(currentHealth, playerController.PlayerData.maxHealth);
+        SetHealthChanged();
     }
 
     public bool IsAlive() 
@@ -31,4 +32,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         return currentHealth > 0;
     }
   
+    private void SetHealthChanged() 
+    {
+        OnHealthChanged?.Invoke(currentHealth, playerController.PlayerData.maxHealth);
+    }
 }

@@ -15,7 +15,7 @@ public class BombCollision : MonoBehaviour
     {
         if (!bombController.isExploding && other.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = other.GetComponentInParent<PlayerHealth>();
             if (playerHealth == null) return;
             bombController.Explosion();
             playerHealth.TakeDamage(enemyController.EnemyData.attackDamage); 

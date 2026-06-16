@@ -4359,6 +4359,7 @@ GameObject:
   - component: {fileID: 1001962545}
   - component: {fileID: 1001962547}
   - component: {fileID: 1001962546}
+  - component: {fileID: 1001962548}
   m_Layer: 5
   m_Name: HealthBarUI
   m_TagString: Untagged
@@ -4426,6 +4427,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001962544}
   m_CullTransparentMesh: 1
+--- !u!114 &1001962548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001962544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f132dde5b809748b5e0010ba25cc11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthBarUI
+  playerHealthBarUI: {fileID: 55109908}
 --- !u!1 &1075971008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5357,7 +5371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.299988, y: -10.199997}
+  m_AnchoredPosition: {x: -7.299988, y: -17}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1545912546
@@ -9255,7 +9269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f722e8ffaa9553f49b13072a19df6712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHitBox
-  playerController: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

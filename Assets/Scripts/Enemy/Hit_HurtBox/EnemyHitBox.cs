@@ -20,7 +20,7 @@ public class EnemyHitBox : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
-            PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             if (playerHealth == null) return;
             playerHealth.TakeDamage(damage);
             Debug.Log(damage);

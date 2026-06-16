@@ -20,5 +20,5 @@ MonoBehaviour:
   detectionRange: 0
   attackRange: 3
   attackDuration: 0.45
-  attackDamage: 10
+  attackDamage: 5
   maxHealth: 10

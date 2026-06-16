@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerHitBox : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
+    private PlayerController playerController;
     private float damage;
 
     private void Awake()
