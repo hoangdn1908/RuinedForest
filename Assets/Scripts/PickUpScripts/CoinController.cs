@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
+    public static Action<int> OnCoinSelected;
     [SerializeField] private Animator animator;
     [SerializeField] private float hitDuration;
 
@@ -10,7 +12,7 @@ public class CoinController : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
-            UpdateAddCoin();
+            OnCoinSelected?.Invoke(1);
             PlayHitAnimation();
             StartCoroutine(WaitAndHide());
         }
@@ -27,8 +29,4 @@ public class CoinController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void UpdateAddCoin() 
-    {
-        UiController.Instance.coinUi.AddCoin(1);
-    }
 }

@@ -6,6 +6,15 @@ public class CoinUi : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinText;
     private int coinCount = 0;
 
+    private void OnEnable()
+    {
+        CoinController.OnCoinSelected += AddCoin;
+    }
+
+    private void OnDisable()
+    {
+        CoinController.OnCoinSelected -= AddCoin;
+    }
     private void Start()
     {
         UpdateUI();
