@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -13,6 +14,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         playerController = GetComponent<PlayerController>();
         SetCurrentHealth();
         SetHealthChanged();
+    }
+
+    private void Update()
+    {
+        Die();
     }
 
     private void SetCurrentHealth() 
@@ -35,5 +41,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void SetHealthChanged() 
     {
         OnHealthChanged?.Invoke(currentHealth, playerController.PlayerData.maxHealth);
+    }
+
+    private void Die() 
+    {
+        if (!IsAlive())
+        {
+            GameManager.Instance.ChangeGameState(GameStates.Lose);
+        }
     }
 }

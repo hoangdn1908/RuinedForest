@@ -276,7 +276,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 67746357}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1162413480}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &67746357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,13 +443,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1162413480}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1459,6 +1471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 848295122}
+  - component: {fileID: 848295123}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1481,6 +1494,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &848295123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848295121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abdef18a3fa6fb47ba3e7cf88b06426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &969579134
 GameObject:
   m_ObjectHideFlags: 0
@@ -5276,6 +5301,7 @@ GameObject:
   - component: {fileID: 1162413476}
   - component: {fileID: 1162413475}
   - component: {fileID: 1162413479}
+  - component: {fileID: 1162413480}
   m_Layer: 5
   m_Name: UIController
   m_TagString: Untagged
@@ -5380,6 +5406,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921f88a24a807334e8bca270dd69b2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiController
+  coinUi: {fileID: 1545912548}
+  playerHealthBarUI: {fileID: 1001962548}
+  pausePanel: {fileID: 628583080}
+--- !u!114 &1162413480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162413474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d0beee7290c494e984a17d87583c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
 --- !u!1 &1183236245
 GameObject:
   m_ObjectHideFlags: 0
@@ -9642,7 +9683,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810605572}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1162413480}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1810605572
 MonoBehaviour:
   m_ObjectHideFlags: 0

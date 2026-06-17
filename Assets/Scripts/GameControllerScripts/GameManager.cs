@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    private void ChangeGameState(GameStates state) 
+    public void ChangeGameState(GameStates state) 
     {
         currentState = state;
         switch (currentState) 
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour
             case GameStates.Pause:
                 EnterPauseState();
                 break;
+            case GameStates.Lose:
+                EnterLoseState();
+                break;
         }
     }
 
@@ -43,12 +47,28 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         UiController.Instance.SetPausePanelActive(false);
+        UiController.Instance.SetLosePanelActive(false);
     }
 
     private void EnterPauseState() 
     {
         Time.timeScale = 0f;
         UiController.Instance.SetPausePanelActive(true);
+        UiController.Instance.SetLosePanelActive(false);
+    }
+
+    private void EnterLoseState() 
+    {
+       StartCoroutine(DelayLoseState());
+    }
+
+    private IEnumerator DelayLoseState() 
+    {
+        Time.timeScale = 1f; 
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0f;
+        UiController.Instance.SetPausePanelActive(false);
+        UiController.Instance.SetLosePanelActive(true);
     }
 
     private void CheckPauseInput() 
@@ -58,4 +78,5 @@ public class GameManager : MonoBehaviour
             ChangeGameState(GameStates.Pause);
         }
     }
+
 }
