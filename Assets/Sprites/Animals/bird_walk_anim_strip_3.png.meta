@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 7ee2ef05a23d0544bb23b38c4daf9e6f
+guid: 3fd7732e3f2bc334d95e33c60bbf360e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3793622439617186879
-    second: fg_1_0
+      213: -6503389934845916026
+    second: bird_walk_anim_strip_3_0
+  - first:
+      213: -2639092456156135558
+    second: bird_walk_anim_strip_3_1
+  - first:
+      213: -1121593322743991343
+    second: bird_walk_anim_strip_3_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fg_1_0
+      name: bird_walk_anim_strip_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 240
-        height: 17
+        width: 9
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3c45556287a5a430800000000000000
-      internalID: 3793622439617186879
+      spriteID: 68c88a98f415fb5a0800000000000000
+      internalID: -6503389934845916026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird_walk_anim_strip_3_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f7665c46f006bd0800000000000000
+      internalID: -2639092456156135558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird_walk_anim_strip_3_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d3f46fb0dc4f60f0800000000000000
+      internalID: -1121593322743991343
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fg_1_0: 3793622439617186879
+      bird_walk_anim_strip_3_0: -6503389934845916026
+      bird_walk_anim_strip_3_1: -2639092456156135558
+      bird_walk_anim_strip_3_2: -1121593322743991343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

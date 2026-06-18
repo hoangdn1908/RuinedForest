@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7ee2ef05a23d0544bb23b38c4daf9e6f
+guid: 1676ee3e984479d47b5ab68b38aedf29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3793622439617186879
-    second: fg_1_0
+      213: 9087613101874884219
+    second: bird_flying_anim_strip_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fg_1_0
+      name: bird_flying_anim_strip_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 240
-        height: 17
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3c45556287a5a430800000000000000
-      internalID: 3793622439617186879
+      spriteID: b7e2079c7ffad1e70800000000000000
+      internalID: 9087613101874884219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird_flying_anim_strip_3_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a8feae84ba28746bd582fbc207cbae
+      internalID: -1116260417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird_flying_anim_strip_3_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c9e164eb2a57d43a019d6f9a0c498d
+      internalID: -977112237
       vertices: []
       indices: 
       edges: []
@@ -125,7 +169,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6792c717e071ccf4c9e2c8a0746ee51b
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +177,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":8.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      fg_1_0: 3793622439617186879
+      bird_flying_anim_strip_3_0: 9087613101874884219
+      bird_flying_anim_strip_3_1: -1116260417
+      bird_flying_anim_strip_3_2: -977112237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

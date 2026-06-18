@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 7ee2ef05a23d0544bb23b38c4daf9e6f
+guid: dd19916b737b9aa4cb6fcc9a4bf5768d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3793622439617186879
-    second: fg_1_0
+      213: 1494933274880506986
+    second: rabit_idle_anim_strip_4_0
+  - first:
+      213: 4739521612578187279
+    second: rabit_idle_anim_strip_4_1
+  - first:
+      213: 8984766343880804360
+    second: rabit_idle_anim_strip_4_2
+  - first:
+      213: -6505570158180688833
+    second: rabit_idle_anim_strip_4_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fg_1_0
+      name: rabit_idle_anim_strip_4_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 240
-        height: 17
+        width: 12
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3c45556287a5a430800000000000000
-      internalID: 3793622439617186879
+      spriteID: a6cf92c94e11fb410800000000000000
+      internalID: 1494933274880506986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabit_idle_anim_strip_4_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08620babc926c140800000000000000
+      internalID: 4739521612578187279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabit_idle_anim_strip_4_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80886ece26d40bc70800000000000000
+      internalID: 8984766343880804360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabit_idle_anim_strip_4_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3c124cb86297b5a0800000000000000
+      internalID: -6505570158180688833
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fg_1_0: 3793622439617186879
+      rabit_idle_anim_strip_4_0: 1494933274880506986
+      rabit_idle_anim_strip_4_1: 4739521612578187279
+      rabit_idle_anim_strip_4_2: 8984766343880804360
+      rabit_idle_anim_strip_4_3: -6505570158180688833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

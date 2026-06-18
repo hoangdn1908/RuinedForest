@@ -9,6 +9,11 @@ public class ButtonController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void LoadScene(string scene) 
+    {
+        SceneManager.LoadScene(scene);
+    }
+
     public void ResumeGame() 
     {
         GameManager.Instance.EnterPlayingState();
