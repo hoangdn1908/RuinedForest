@@ -18,9 +18,18 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        CheckPauseInput();
+        HandlePauseInput();
     }
 
+    private void OnEnable()
+    {
+        PlayerHealth.OnPlayerDied += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        PlayerHealth.OnPlayerDied -= HandlePlayerDeath;
+    }
     private void SetSingleTon() 
     {
         Instance = this;
@@ -43,6 +52,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #region Enter game State
     public void EnterPlayingState() 
     {
         Time.timeScale = 1.0f;
@@ -70,13 +80,21 @@ public class GameManager : MonoBehaviour
         UiController.Instance.SetPausePanelActive(false);
         UiController.Instance.SetLosePanelActive(true);
     }
+    #endregion
 
-    private void CheckPauseInput() 
+    #region Handle game state
+    private void HandlePlayerDeath()
+    {
+        ChangeGameState(GameStates.Lose);
+    }
+
+    private void HandlePauseInput() 
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             ChangeGameState(GameStates.Pause);
         }
     }
+    #endregion
 
 }
