@@ -23,7 +23,6 @@ public class EnemyHitBox : MonoBehaviour
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             if (playerHealth == null) return;
             playerHealth.TakeDamage(damage);
-            Debug.Log(damage);
         }
     }
 }

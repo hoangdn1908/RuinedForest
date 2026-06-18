@@ -24,11 +24,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerHealth.OnPlayerDied += HandlePlayerDeath;
+        FinishedPointController.OnReachedPoint += HandlePlayerReachedFinishedPoint;
     }
 
     private void OnDisable()
     {
         PlayerHealth.OnPlayerDied -= HandlePlayerDeath;
+        FinishedPointController.OnReachedPoint -= HandlePlayerReachedFinishedPoint;
     }
     private void SetSingleTon() 
     {
@@ -49,6 +51,9 @@ public class GameManager : MonoBehaviour
             case GameStates.Lose:
                 EnterLoseState();
                 break;
+            case GameStates.Win:
+                EnterWinState();
+                break;
         }
     }
 
@@ -58,6 +63,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         UiController.Instance.SetPausePanelActive(false);
         UiController.Instance.SetLosePanelActive(false);
+        UiController.Instance.SetWinPanelActive(false);
     }
 
     private void EnterPauseState() 
@@ -65,6 +71,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         UiController.Instance.SetPausePanelActive(true);
         UiController.Instance.SetLosePanelActive(false);
+        UiController.Instance.SetWinPanelActive(false);
     }
 
     private void EnterLoseState() 
@@ -79,6 +86,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         UiController.Instance.SetPausePanelActive(false);
         UiController.Instance.SetLosePanelActive(true);
+        UiController.Instance.SetWinPanelActive(false);
+    }
+
+    private void EnterWinState()
+    {
+        Time.timeScale = 0f;
+        UiController.Instance.SetPausePanelActive(false);
+        UiController.Instance.SetLosePanelActive(false);
+        UiController.Instance.SetWinPanelActive(true);
     }
     #endregion
 
@@ -94,6 +110,11 @@ public class GameManager : MonoBehaviour
         {
             ChangeGameState(GameStates.Pause);
         }
+    }
+
+    private void HandlePlayerReachedFinishedPoint() 
+    {
+        ChangeGameState(GameStates.Win);
     }
     #endregion
 

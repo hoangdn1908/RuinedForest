@@ -7,6 +7,7 @@ public class UiController : MonoBehaviour
     public PlayerHealthBarUI playerHealthBarUI;
     public GameObject pausePanel;
     public GameObject losePanel;
+    public GameObject winPanel;
 
 
     private void Awake()
@@ -27,5 +28,10 @@ public class UiController : MonoBehaviour
     public void SetLosePanelActive(bool value) 
     {
         losePanel.SetActive(value);
+    }
+
+    public void SetWinPanelActive(bool value) 
+    {
+        winPanel.SetActive(value);
     }
 }

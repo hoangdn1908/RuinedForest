@@ -15,8 +15,8 @@ public class ButtonController : MonoBehaviour
     }
 
     public void ExitGame() 
-    { 
-    
+    {
+        Application.Quit();
     }
 
     public void GoToMainMenu() 
