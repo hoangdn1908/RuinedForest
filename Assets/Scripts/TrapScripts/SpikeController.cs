@@ -9,7 +9,6 @@ public class SpikeController : MonoBehaviour
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             if (playerHealth == null) 
             {
-                Debug.Log("Null");
                 return;
             }
             playerHealth.TakeDamage(100);

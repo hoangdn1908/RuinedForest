@@ -1,16 +1,15 @@
 using System;
 using UnityEngine;
 
-public class FinishedPointController : MonoBehaviour
+public class ButtonToOpenDoor : MonoBehaviour
 {
-    public static Action OnReachedPoint;
+    public static Action OnReachedButton;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) 
         {
-            OnReachedPoint?.Invoke();
-            Debug.Log("Reached");
+            OnReachedButton?.Invoke();
         }
     }
 }
