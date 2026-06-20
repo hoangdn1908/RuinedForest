@@ -18,7 +18,7 @@ MonoBehaviour:
   canPatrol: 0
   canChase: 0
   detectionRange: 0
-  attackRange: 3
+  attackRange: 4
   attackDuration: 0.45
-  attackDamage: 5
+  attackDamage: 3
   maxHealth: 10

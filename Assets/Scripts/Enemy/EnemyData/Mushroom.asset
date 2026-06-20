@@ -21,4 +21,4 @@ MonoBehaviour:
   attackRange: 0
   attackDuration: 0
   attackDamage: 0
-  maxHealth: 20
+  maxHealth: 10
