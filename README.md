@@ -18,6 +18,13 @@ Although the gameplay is simple, this project focuses heavily on building a clea
 
 ---
 
+## 🛠 Technologies Used
+
+* **Unity Engine**
+* **C#**
+
+---
+
 ## 📖 Gameplay
 
 ### Objectives
@@ -38,91 +45,24 @@ Although the gameplay is simple, this project focuses heavily on building a clea
 
 ---
 
-## 🛠 Technologies Used
+## 🏗 Architecture & Design
 
-* **Unity Engine**
-* **C#**
-* Unity Animator
-* Scriptable Objects
-* Object Pooling
+Built with a focus on clean, modular, and scalable game architecture.
 
----
+| Pattern               | Purpose                                           |
+| --------------------- | ------------------------------------------------- |
+| 🎭 State Machine      | Handles Player, Enemy, and Game States            |
+| 📡 Action Events      | Event-driven communication between systems and UI |
+| 📦 Scriptable Objects | Stores configurable player and enemy data         |
+| ♻️ Object Pooling     | Efficient spawning and recycling of game objects  |
 
-## 🏗 Architecture & Design Patterns
+### Highlights
 
-This project was built with maintainability and scalability in mind.
+* 🎮 Modular Player & Enemy AI
+* ⚡ Event-Driven UI Updates
+* 🧩 Data-Driven Configuration
+* 🚀 Optimized Object Spawning
+* 🔧 Easy to Extend and Maintain
 
-### State Machine
-
-State Machines are used to control:
-
-#### Player States
-
-* Idle
-* Walk
-* Jump
-* Fall
-* Dash
-* Attack
-
-#### Enemy States
-
-* Patrol
-* Chase
-* Attack
-* Death
-
-#### Game States
-
-* Main Menu
-* Playing
-* Game Over
-* Victory
-
-This approach keeps behaviors organized and prevents large, difficult-to-maintain scripts.
-
----
-
-### Event-Driven Architecture
-
-The game uses **Action Events** to decouple gameplay systems from UI systems.
-
-Examples:
-
-* Health changes update the Health Bar
-* Coin collection updates the Coin Counter
-* Game state changes update menus and screens
-
-This creates cleaner communication between systems and reduces dependencies.
-
----
-
-### Scriptable Objects
-
-Scriptable Objects are used to store and manage game data such as:
-
-* Player Stats
-* Enemy Stats
-* Configurable Values
-
-Benefits:
-
-* Easy balancing
-* Reusable data
-* Cleaner inspector workflow
-
----
-
-### Object Pooling
-
-Object Pooling is used to efficiently spawn and recycle objects such as:
-
-* Visual Effects
-* Projectiles
-* Temporary Gameplay Objects
-
-This helps reduce runtime allocations and improves performance.
-
----
 
 
