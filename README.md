@@ -4,7 +4,7 @@
 
 ![Unity](https://img.shields.io/badge/Engine-Unity-black?style=for-the-badge\&logo=unity)
 ![CSharp](https://img.shields.io/badge/Language-C%23-purple?style=for-the-badge\&logo=csharp)
-![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Almost Done-success?style=for-the-badge)
 
 ---
 
